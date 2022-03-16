@@ -1,4 +1,4 @@
-import { IPage } from "./pages.interface"
+import { IPage } from "./data.interface"
 
 export const data: IPage[] = [
     {

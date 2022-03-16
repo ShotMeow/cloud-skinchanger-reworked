@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import { data } from './pages'
-import { IPage } from './pages.interface'
+import { data } from './data'
+import { IPage } from './data.interface'
 
 const Nav = () => {
   const [show, setShow] = useState<boolean>(false)
@@ -25,7 +25,7 @@ const Nav = () => {
         <HiOutlineMenu color='white' size={24} className="mt-1 transition duration-300 ease-in-out" />
       </button>
       <div onClick={(): void => setShow(false)} className={'w-screen h-screen fixed left-0 top-0 bg-black/20 transition duration-700 ease-linear ' + (show ? 'opacity-100' : 'opacity-0 pointer-events-none')}></div>
-      <nav className={'fixed top-0 lg:static lg:translate-y-0 transition ease duration-500 left-0 w-full text-white bg-[#090909] lg:bg-transparent ' + (show ? '-translate-y-5' : '-translate-y-96')}>
+      <nav className={'z-10 fixed top-0 lg:static lg:translate-y-0 transition ease duration-500 left-0 w-full text-white bg-[#090909] lg:bg-transparent ' + (show ? '-translate-y-5' : '-translate-y-96')}>
         <ul className='flex lg:gap-10 lg:flex-row lg:justify-between flex-col items-center gap-6 py-8 lg:py-0'>
           <h1 className="text-white lg:hidden font-bold text-2xl">Cloud <span className="text-[#CF2C2C]">Skinchanger</span></h1>
           {pages.map(page => (
