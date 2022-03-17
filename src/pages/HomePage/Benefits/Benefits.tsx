@@ -3,7 +3,7 @@ import Button from "../../../components/Button/Button"
 const Benefits = () => {
     return (
         <div className="text-white bg-[#0A0A0A] my-8">
-            <div className="container mx-auto px-5 py-10 grid items-center lg:grid-cols-2 gap-8 lg:flex-row">
+            <div className="container mx-auto px-4 py-10 grid items-center lg:grid-cols-2 gap-8 lg:flex-row">
                 <div className="flex flex-col items-start gap-5">
                     <h2 className="text-2xl font-bold">Преимущества</h2>
                     <p className="text-[#B0B0B0]">Наш Skinchanger является наиболее продвинутым для Dota 2. Он включает в себя полный набор существующих скинов, а так-же авторские нововведения. Мы обеспечиваем нашим клиентам максимальную безопасность и обратную связь 24/7.</p>
