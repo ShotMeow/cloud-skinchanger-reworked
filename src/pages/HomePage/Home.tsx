@@ -1,11 +1,13 @@
 import Benefits from "./Benefits/Benefits"
+import Billing from "./Billing/Billing"
 import Main from "./Main/Main"
 
 const Home = () => {
     return (
-        <div>
+        <div className="text-white">
             <Main />
             <Benefits />
+            <Billing />
         </div>
     )
 }
