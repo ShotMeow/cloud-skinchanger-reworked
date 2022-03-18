@@ -6,7 +6,7 @@ const data: ITariff[] = [
     {
         id: 1,
         title: 'Пробный',
-        cost: 20,
+        cost: 35,
         duration: 1,
         discount: 0,
         standard_skins: true,
@@ -17,7 +17,7 @@ const data: ITariff[] = [
     {
         id: 2,
         title: 'Базовый',
-        cost: 120,
+        cost: 240,
         duration: 7,
         discount: 0,
         standard_skins: true,
@@ -28,7 +28,7 @@ const data: ITariff[] = [
     {
         id: 3,
         title: 'Стандарт',
-        cost: 200,
+        cost: 460,
         duration: 14,
         discount: 0,
         standard_skins: true,
@@ -39,7 +39,7 @@ const data: ITariff[] = [
     {
         id: 4,
         title: 'Профи',
-        cost: 250,
+        cost: 640,
         duration: 20,
         discount: 0,
         standard_skins: true,
@@ -50,7 +50,7 @@ const data: ITariff[] = [
     {
         id: 5,
         title: 'Премиум',
-        cost: 700,
+        cost: 1850,
         duration: 60,
         discount: 0,
         standard_skins: true,
@@ -65,3 +65,4 @@ data.forEach(tariff => {
 })
 
 export default data
+export { price }

@@ -73,7 +73,7 @@ const Tariffs = () => {
                 <Button type="primary">Продолжить</Button>
             </div>
             <h3 className="uppercase text-xl font-bold text-center my-10">Или</h3>
-            <h3 className="uppercase text-xl font-bold text-center my-10">Подбери удобный план</h3>
+            <h3 className="text-xl font-bold text-center my-10">Подбери удобный план</h3>
         </div >
     )
 }

@@ -1,4 +1,4 @@
-import { IRadios } from "./data.interface";
+import { ICheckboxes, IRadios } from "./data.interface";
 
 const radiosData: IRadios[] = [
     {
@@ -8,9 +8,22 @@ const radiosData: IRadios[] = [
     },
     {
         id: 2,
-        title: 'Weekend (праздники и выходные',
+        title: 'Weekend (праздники и выходные)',
         isActive: false
     }
 ]
 
-export { radiosData }
+const checkboxesData: ICheckboxes[] = [
+    {
+        id: 1,
+        title: 'Кастомные скины и модели',
+        isActive: false
+    },
+    {
+        id: 2,
+        title: 'Возможность видеть скины друг друга',
+        isActive: false
+    }
+]
+
+export { radiosData, checkboxesData }

@@ -4,4 +4,6 @@ interface IRadios {
     isActive: boolean
 }
 
-export type { IRadios }
+interface ICheckboxes extends IRadios { }
+
+export type { IRadios, ICheckboxes }
