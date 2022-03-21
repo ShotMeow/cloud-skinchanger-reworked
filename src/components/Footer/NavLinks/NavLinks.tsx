@@ -1,4 +1,4 @@
-import { data } from "../../Header/Nav/data"
+import { data } from "../../Header/data"
 import { Link } from 'react-router-dom'
 
 const NavLinks = () => {

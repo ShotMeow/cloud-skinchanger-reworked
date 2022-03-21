@@ -1,25 +1,16 @@
-import { useState } from 'react'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import Button from '../../Button/Button'
-import { data } from './data'
-import { IPage } from './data.interface'
+import { IPage } from '../data.interface'
 
-const Nav = () => {
-  const [show, setShow] = useState<boolean>(false)
-  const [pages, setPages] = useState<IPage[]>(data)
+interface INav {
+  setActive: any
+  setShow: any
+  show: boolean
+  pages: IPage[]
+}
 
-  const setActive = (id: number) => {
-    const copy = [...pages]
-    copy.forEach(page => {
-      if (page.id === id)
-        page.isActive = true
-      else
-        page.isActive = false
-    })
-    setPages(copy)
-    setShow(false)
-  }
+const Nav: React.FC<INav> = ({ setActive, setShow, show, pages }) => {
 
   return (
     <div className='flex items-center justify-center'>
