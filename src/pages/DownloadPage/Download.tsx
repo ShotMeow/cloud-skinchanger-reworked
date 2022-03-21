@@ -5,11 +5,11 @@ const app_img = require('../../assets/application.png')
 
 const Download = () => {
     return (
-        <div className="container mx-auto flex items-center justify-between gap-10 mt-10 mb-60">
-            <div className="flex flex-col gap-5 w-1/2">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 mt-10 mb-60">
+            <div className="flex flex-col gap-5 text-center px-2 lg:px-0 lg:w-1/2">
                 <h2 className="font-bold text-3xl">Попробуй бесплатно</h2>
                 <p>При первом использовании нашего Скинчейнджера вы получаете 7 дней пробного периода и доступ к основным функциям приложенreия. Это значит, что вы сможете опробовать функционал нашего приложения абсолютно бесплатно. Наслаждайтесь!</p>
-                <div className="flex items-start gap-5">
+                <div className="flex items-center gap-5 flex-col lg:flex-row lg:items-start">
                     <div className="flex flex-col items-center">
                         <Button type="secondary"><AiFillWindows size={20} /> Windows</Button>
                         <p className="mt-2 text-[#8A8A8A]">windows 7, 8 и выше</p>
