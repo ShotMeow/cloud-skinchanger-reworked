@@ -5,7 +5,7 @@ const app_img = require('../../../assets/application.png')
 
 const Main = () => {
     return (
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5 items-center container mx-auto p-4 text-white">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5 items-center container mx-auto p-4">
             <div className="relative">
                 <img src={hero_img} alt="Legion Commander" className="mx-auto relative z-20" />
                 <svg className="hidden lg:block absolute top-0 left-0 z-10" width="296" height="243" viewBox="0 0 296 243" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">

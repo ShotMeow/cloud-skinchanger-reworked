@@ -2,7 +2,7 @@ import Button from "../../../components/Button/Button"
 
 const Benefits = () => {
     return (
-        <div className="text-white bg-[#0A0A0A] my-8">
+        <div className="bg-[#0A0A0A] my-8">
             <div className="container mx-auto px-4 py-10 grid items-center lg:grid-cols-2 gap-8 lg:flex-row">
                 <div className="flex flex-col items-start gap-5">
                     <h2 className="text-2xl font-bold">Преимущества</h2>

@@ -4,12 +4,14 @@ import Checkbox from "../../../../components/Checkbox/Checkbox"
 import Radio from "../../../../components/Radio/Radio"
 import RangeComponent from "../../../../components/Range/Range"
 import { price } from "../Tariffs/data"
-import { checkboxesData, radiosData } from "./data"
+import { radiosData } from "./data"
 
 export const Calculator = () => {
     const [radios, setRadios] = useState(radiosData)
-    const [checkboxes, setCheckboxes] = useState(checkboxesData)
     const [duration, setDuration] = useState([3])
+
+    const [isCustom, setCustom] = useState<boolean>(false)
+    const [isFriends, setFriends] = useState<boolean>(false)
 
     const changeRadio = (id: number) => {
         const copy = [...radios]
@@ -23,17 +25,6 @@ export const Calculator = () => {
     }
 
     let result = price * duration[0]
-
-    const changeCheckboxes = (id: number) => {
-        const copy = [...checkboxes]
-        copy.forEach(checkbox => {
-            if (checkbox.id === id) {
-                checkbox.isActive = !checkbox.isActive
-            }
-        })
-
-        setCheckboxes(copy)
-    }
 
     return (
         <div className="bg-[#020202] pb-36">
@@ -50,9 +41,8 @@ export const Calculator = () => {
                 </div>
                 <div className="mt-10">
                     <h3 className="font-semibold text-xl mb-4">Выбери доп. функции</h3>
-                    {checkboxes.map(checkbox => (
-                        <Checkbox key={checkbox.id} id={checkbox.id} isActive={checkbox.isActive} setActive={changeCheckboxes}>{checkbox.title}</Checkbox>
-                    ))}
+                    <Checkbox isActive={isCustom} setActive={setCustom}>Кастомные скины и модели</Checkbox>
+                    <Checkbox isActive={isFriends} setActive={setFriends}>Возможность видеть скины друг друга</Checkbox>
                 </div>
                 <div>
                     <p className="text-xl mt-10 mb-5">Итого: <span className="font-bold"><span className="text-[#CF2C2C]">{result} ₽</span> за {duration} дней</span></p>

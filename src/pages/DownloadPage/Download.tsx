@@ -5,7 +5,7 @@ const app_img = require('../../assets/application.png')
 
 const Download = () => {
     return (
-        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 mt-10 mb-60">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 mt-20 mb-60">
             <div className="flex flex-col gap-5 text-center px-2 lg:px-0 lg:w-1/2 lg:text-left">
                 <h2 className="font-bold text-3xl">Попробуй бесплатно</h2>
                 <p>При первом использовании нашего Скинчейнджера вы получаете 7 дней пробного периода и доступ к основным функциям приложенreия. Это значит, что вы сможете опробовать функционал нашего приложения абсолютно бесплатно. Наслаждайтесь!</p>
@@ -18,8 +18,8 @@ const Download = () => {
                 </div>
             </div>
             <div className="relative">
-                <img src={app_img} alt="Application" className="relative z-20 transition duration-500 ease hover:scale-105" />
-                <svg className="hidden lg:block absolute -bottom-5 -right-5 z-10" width="296" height="243" viewBox="0 0 296 243" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                <img src={app_img} alt="Application" className="relative z-20 rounded transition duration-500 ease hover:scale-105 hover:shadow-[#CF2C2C] hover:shadow-lg" />
+                <svg className="hidden lg:block absolute -bottom-24 -right-5 z-10" width="296" height="243" viewBox="0 0 296 243" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <rect width="296" height="243" fill="url(#pattern0)" />
                     <defs>
                         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">

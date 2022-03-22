@@ -7,19 +7,23 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Download from './pages/DownloadPage/Download'
+import { Provider } from 'react-redux'
+import { store } from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='download' element={<Download />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='download' element={<Download />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Layout>
+    </Provider>
   </React.StrictMode >,
   document.getElementById('root')
 );

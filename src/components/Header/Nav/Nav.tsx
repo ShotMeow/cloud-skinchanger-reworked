@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import Button from '../../Button/Button'
+import Modal from '../../Modal/Modal'
 import { IPage } from '../data.interface'
 
 interface INav {
@@ -11,7 +13,12 @@ interface INav {
 }
 
 const Nav: React.FC<INav> = ({ setActive, setShow, show, pages }) => {
+  const [isModal, showModal] = useState<boolean>(false)
 
+  const handleClick = () => {
+    setActive(false)
+    showModal(!isModal)
+  }
   return (
     <div className='flex items-center justify-center'>
       <button onClick={(): void => setShow(!show)} className="lg:hidden">
@@ -20,13 +27,14 @@ const Nav: React.FC<INav> = ({ setActive, setShow, show, pages }) => {
       <div onClick={(): void => setShow(false)} className={'w-screen z-30 h-screen fixed left-0 top-0 bg-black/50 transition duration-300 ease-linear ' + (show ? 'opacity-100' : 'opacity-0 pointer-events-none')}></div>
       <nav className={'z-40 fixed top-0 lg:static lg:translate-y-0 transition ease duration-500 left-0 w-full text-white bg-[#090909] lg:bg-transparent ' + (show ? '-translate-y-5' : '-translate-y-96')}>
         <ul className='flex lg:gap-10 lg:flex-row lg:justify-between flex-col items-center gap-6 py-8 lg:py-0'>
-          <h2 className="text-white lg:hidden font-bold text-2xl">Cloud <span className="text-[#CF2C2C]">Skinchanger</span></h2>
+          <h2 className="lg:hidden font-bold text-2xl">Cloud <span className="text-[#CF2C2C]">Skinchanger</span></h2>
           {pages.map(page => (
             <Link key={page.id} onClick={(): void => setActive(page.id)} className={page.isActive ? 'font-bold text-white' : 'font-semibold text-[#D2D2D2]'} to={page.url}>{page.title}</Link>
           ))}
-          <Button type='secondary'>Авторизоваться</Button>
+          <Button type='secondary' onClick={(): void => handleClick()}>Авторизоваться</Button>
         </ul>
       </nav>
+      <Modal active={isModal} setActive={showModal} />
     </div >
   )
 }
