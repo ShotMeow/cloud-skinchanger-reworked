@@ -7,7 +7,7 @@ const NotFound = () => {
             <h1 className="text-8xl font-bold">404</h1>
             <p className="text-3xl uppercase mb-6">Страница не найдена</p>
             <Link to="/" className="font-bold text-2xl"><Button type="secondary">На главную страницу</Button></Link>
-            <svg className="hidden lg:block absolute -top-20 right-0 z-10" width="296" height="243" viewBox="0 0 296 243" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <svg className="hidden lg:block absolute -top-20 right-28 z-10" width="296" height="243" viewBox="0 0 296 243" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <rect width="296" height="243" fill="url(#pattern0)" />
                 <defs>
                     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
