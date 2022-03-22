@@ -30,7 +30,7 @@ const Main = () => {
                 <p className="font-semibold">Удобный интерфейс, полная безопасность, техническая поддержка 24/7</p>
             </div>
             <div className="mt-6">
-                <img src={app_img} alt="Application" className="transition duration-500 ease hover:scale-105" />
+                <img src={app_img} alt="Application" className="rounded transition duration-500 ease hover:scale-105 hover:shadow-[#CF2C2C] hover:shadow-lg" />
             </div>
         </div>
     )
