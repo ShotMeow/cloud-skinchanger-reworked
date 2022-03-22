@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+# 1. О проекте
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cloud Skinchanger - приложение, позволяющее получить все платные визуальные элементы компьютерной игры Dota 2, а так же внести в игру новые, уникальные элементы от разработчиков и авторов. Приложение работает по платной, продлеваемой подписке.
 
-## Available Scripts
+# 2. Описание системы
 
-In the project directory, you can run:
+Система веб-приложения состоит из следующих основных функциональных блоков:
 
-### `npm start`
+1. Регистрация, аутентификация и авторизация.
+2. Тарификация и калькулятор тарифа для пользователя.
+3. Функционал для администратора.
+4. Функционал для пользователя.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 2.1. Типы пользователей
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Система предусматривает два типа пользователей системы: администратор и пользователь.
+Администратор имеет доступ к просмотру активных подписок, пользователи имеют доступ к выбору, покупке и продлению подписки.
 
-### `npm test`
+## 2.2. Регистрация
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Регистрация имеет полноценную валидацию полей ввода и содержит в себе:
 
-### `npm run build`
+* Логин - обязательное поле, должно иметь как минимум 4 символа.
+* E-mail - обязательное поле.
+* Пароль - обязательное поле, должно иметь как минимум 8 символов.
+* Подтверждение пароля - обязательное поле, должно иметь как минимум 8 символов, должен совпадать с полем Пароль.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Процесс регистрации сопровождается подтверждением согласия с лицензионным соглашением.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2.3. Аутентификация и авторизация
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Авторизация, так же, как и Регистрация имеет полноценную валидацию полей ввода и содержит в себе:
 
-### `npm run eject`
+* Логин - обязательное поле, должно иметь как минимум 4 символа.
+* Пароль - обязательное поле, должно иметь как минимум 8 символов.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Так-же авторизация имеет поле "забыл пароль" и "запомнить меня".
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+При неудачной авторизации осуществлен вывод ошибки с соответствующей информацией.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+После успешной авторизации происходит процесс аутентификации, где вошедшему пользователю присуждается уникальный токен.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 2.4. Тарификация
 
-## Learn More
+В веб-приложении осуществлена система тарификации, которая содержит в себе 5 тарифов. На маленьких дисплеях тарификация выполнена в виде слайдера с использованием библиотеки Swiper. 
+Подтверждение выбора тарифа сопровождается подтверждением лоцензионного договора и продления подписки.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 2.5. Калькулятор тарифа
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Помимо выбора тарифа пользователю доступен функционал калькулятора, где пользователь может выбрать тип подписки, длительность подписки и дополнительные функции. При изменении какого-либо параметра, в отдельном поле пользователь может увидеть суммированный результат цены.
+
+## 2.6. Функционал администратора
+
+В личном кабинете администратору доступна вся информация по активным подпискам и соответствующим пользователям.
+
+## 2.7. Функционал пользователя
+
+В личном кабинете пользователю доступен быстрый доступ к калькулятору подписки, отделу истории транзакций, настройке профиля, и выхода из аккаунта.
+
+## 2.7.1 Настройки профиля
+
+Каждый пользователь может изменять данные своего профиля, а именно:
+
+* Аватар
+* Логин
+* E-mail
+* Пароль
+
+Помимо этого в профиле можно подключить двухфакторную аутентификацию через Telegram.
+
+# 3. Стек технологий
+
+Для реализации системы были использованы следующие технологии:
+
+* Frontend:
+- React
+- Typescript
+- Tailwind
+- Redux
+- Swiper
+
+* Backend:
+- В процессе
+
+# 4. Дизайн проекта
+
+Дизайн выполнен в минималистичном стиле без использования лишний цветов и шрифтов. 
+
+Используемые цвета:
+* Темный - #040404
+* Темно-серый - #090909
+* Красный - #CF2C2C
+* Белый - #FFF
+
+Используемые шрифты:
+* Montserrat - 600, 700
+* Raleway - 400, 500, 600, 700
+
+Подробнее с дизайном можно ознакомиться по следующей ссылке: https://www.figma.com/file/jLGBWfy26XlqFsdnTkoO33/Cloud-Skinchanger?node-id=0%3A1
