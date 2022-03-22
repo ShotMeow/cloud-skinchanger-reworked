@@ -9,6 +9,10 @@ import Footer from './components/Footer/Footer'
 import Download from './pages/DownloadPage/Download'
 import { Provider } from 'react-redux'
 import { store } from './store/store';
+import Profile from './pages/ProfilePage/Profile'
+import NotFound from './pages/NotFoundPage/NotFound'
+
+const auth = localStorage.getItem('token')
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,8 +21,10 @@ ReactDOM.render(
         <BrowserRouter>
           <Header />
           <Routes>
+            <Route path='*' element={<NotFound />} />
             <Route path='/' element={<Home />} />
             <Route path='download' element={<Download />} />
+            {auth && <Route path='/profile' element={<Profile />} />}
           </Routes>
           <Footer />
         </BrowserRouter>
