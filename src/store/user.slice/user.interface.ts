@@ -5,6 +5,7 @@ export interface IUser {
     login: string
     email: string
     password: string
+    avatar?: string
     status: status
     token?: string
 }

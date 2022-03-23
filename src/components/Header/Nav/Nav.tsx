@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { HiOutlineMenu } from 'react-icons/hi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAppSelector } from '../../../store/hooks'
 import Button from '../../Button/Button'
 import Modal from '../../Modal/Modal'
 import { IPage } from '../data.interface'
@@ -14,6 +15,10 @@ interface INav {
 
 const Nav: React.FC<INav> = ({ setActive, setShow, show, pages }) => {
   const [isModal, showModal] = useState<boolean>(false)
+  const navigate = useNavigate()
+
+  const users = useAppSelector(state => state.users.users)
+  const currentUser = users.find(user => user.token === localStorage.getItem('token'))
 
   const handleClick = () => {
     setActive(false)
@@ -31,7 +36,7 @@ const Nav: React.FC<INav> = ({ setActive, setShow, show, pages }) => {
           {pages.map(page => (
             <Link key={page.id} onClick={(): void => setActive(page.id)} className={page.isActive ? 'font-bold text-white' : 'font-semibold text-[#D2D2D2]'} to={page.url}>{page.title}</Link>
           ))}
-          <Button type='secondary' onClick={(): void => handleClick()}>Авторизоваться</Button>
+          {currentUser ? <Button type='secondary' onClick={(): void => navigate('profile')}>Профиль</Button> : <Button type='secondary' onClick={(): void => handleClick()}>Авторизоваться</Button>}
         </ul>
       </nav>
       <Modal active={isModal} setActive={showModal} />

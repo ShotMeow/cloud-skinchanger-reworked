@@ -13,7 +13,7 @@ const users: IUser[] = [
         id: 2,
         login: 'user',
         email: 'user@mail.ru',
-        password: 'user',
+        password: 'user1234',
         status: 'user'
     },
 ]

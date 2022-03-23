@@ -1,9 +1,13 @@
+import { useState } from "react"
 import Button from "../../../components/Button/Button"
+import Modal from "../../../components/Modal/Modal"
 
 const hero_img = require('../../../assets/hero.png')
 const app_img = require('../../../assets/application.png')
 
 const Main = () => {
+    const [isModal, showModal] = useState<boolean>(false)
+
     return (
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5 items-center container mx-auto p-4">
             <div className="relative">
@@ -22,7 +26,7 @@ const Main = () => {
             <div className="flex flex-col gap-5 items-start mt-5">
                 <h2 className="text-2xl font-bold">Cloud <span className="text-[#CF2C2C]">Skinchanger</span> - инновационный инструмент по смене скинов <span className="text-[#CF2C2C]">Dota 2</span>.</h2>
                 <p className="text-lg">Хватит тратить огромные деньги на покупку понравившейся вещи на героя, благодаря нашему сервису ты сможешь получить абсолютно все скины, которые только есть в игре.</p>
-                <Button type="secondary">Попробовать бесплатно</Button>
+                <Button type="secondary" onClick={(): void => showModal(!isModal)}>Попробовать бесплатно</Button>
             </div>
             <div className="flex flex-col text-lg gap-3 items-start mt-5">
                 <h3 className="text-xl font-bold">О нашей <span className="text-[#CF2C2C]">программе</span></h3>
@@ -32,6 +36,7 @@ const Main = () => {
             <div className="mt-6">
                 <img src={app_img} alt="Application" className="rounded transition duration-500 ease hover:scale-105 hover:shadow-[#CF2C2C] hover:shadow-lg" />
             </div>
+            <Modal active={isModal} setActive={showModal} />
         </div>
     )
 }

@@ -5,7 +5,9 @@ const Billing = () => {
     return (
         <div>
             <Tariffs />
-            <Calculator />
+            <div className="bg-[#020202]">
+                <Calculator />
+            </div>
         </div>
     )
 }

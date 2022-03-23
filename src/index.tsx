@@ -11,23 +11,13 @@ import { Provider } from 'react-redux'
 import { store } from './store/store';
 import Profile from './pages/ProfilePage/Profile'
 import NotFound from './pages/NotFoundPage/NotFound'
-
-const auth = localStorage.getItem('token')
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Layout>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path='*' element={<NotFound />} />
-            <Route path='/' element={<Home />} />
-            <Route path='download' element={<Download />} />
-            {auth && <Route path='/profile' element={<Profile />} />}
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        <App />
       </Layout>
     </Provider>
   </React.StrictMode >,

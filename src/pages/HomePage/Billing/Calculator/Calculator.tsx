@@ -27,8 +27,8 @@ export const Calculator = () => {
     let result = price * duration[0]
 
     return (
-        <div className="bg-[#020202] pb-36">
-            <div className="container mx-auto py-10 px-4 text-center sm:text-left">
+        <div className="pb-36">
+            <div className="container mx-auto py-10 px-8 lg:px-0 text-center sm:text-left">
                 <div className="mb-6">
                     <h3 className="font-semibold text-xl mb-4">Выбери подписку</h3>
                     {radios.map(radio => (
