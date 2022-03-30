@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { SubmitHandler, useForm } from "react-hook-form"
 import Checkbox from '../../Checkbox/Checkbox'
-import { useAppDispatch } from '../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { addUser } from '../../../store/user.slice/user.slice'
 import Button from '../../Button/Button'
 import Error from '../../Message/Message'
@@ -22,6 +22,7 @@ interface IRegister {
 
 const Register: React.FC<IRegister> = ({ setType }) => {
     const dispatch = useAppDispatch()
+    const users = useAppSelector(state => state.users.users)
     const formSchema = Yup.object().shape({
         login: Yup.string()
             .required('Это поле обязательное')
@@ -42,6 +43,8 @@ const Register: React.FC<IRegister> = ({ setType }) => {
     const [isConfirm, setConfirm] = useState(false)
 
     const onSubmit: SubmitHandler<IRegUser> = data => {
+        if (users.find(user => user.login === data.login))
+            return setError('login', { message: 'Данный логин уже занят' })
         if (isConfirm) {
             dispatch(addUser(data))
             setType(true)
@@ -58,17 +61,17 @@ const Register: React.FC<IRegister> = ({ setType }) => {
                 <label htmlFor="login" className='text-[#545454] text-sm absolute -top-6 peer-placeholder-shown:-top-0 transition-all peer-placeholder-shown:text-[#B4B4B4] peer-placeholder-shown:text-lg'>Логин</label>
                 {errors.login && <Error>{errors.login.message}</Error>}
             </div>
-            <div className='relative flex flex-col mt-8'>
+            <div className='relative flex flex-col mt-16'>
                 <input type="email" id='email' {...register('email')} autoComplete='none' placeholder='E-mail' className='peer py-1 text-white placeholder-transparent text-lg bg-transparent border-b focus:outline-none border-[#4F4F4F]' />
                 <label htmlFor="email" className='text-[#545454] text-sm absolute -top-6 peer-placeholder-shown:-top-0 transition-all peer-placeholder-shown:text-[#B4B4B4] peer-placeholder-shown:text-lg'>E-mail</label>
                 {errors.email && <Error>{errors.email.message}</Error>}
             </div>
-            <div className='relative flex flex-col mt-8'>
+            <div className='relative flex flex-col mt-16'>
                 <input type="password" id='password' {...register('password')} autoComplete='none' placeholder='Пароль' className='peer py-1 text-white placeholder-transparent text-lg bg-transparent border-b focus:outline-none border-[#4F4F4F]' />
                 <label htmlFor="password" className='text-[#545454] text-sm absolute -top-6 peer-placeholder-shown:-top-0 transition-all peer-placeholder-shown:text-[#B4B4B4] peer-placeholder-shown:text-lg'>Пароль</label>
                 {errors.password && <Error>{errors.password.message}</Error>}
             </div>
-            <div className='relative flex flex-col mt-8'>
+            <div className='relative flex flex-col mt-16'>
                 <input type="password" id='repeat-password' {...register('repeat_password')} autoComplete='none' placeholder='Подтвердите пароль' className='peer py-1 text-white placeholder-transparent text-lg bg-transparent border-b focus:outline-none border-[#4F4F4F]' />
                 <label htmlFor="repeat-password" className='text-[#545454] text-sm absolute -top-6 peer-placeholder-shown:-top-0 transition-all peer-placeholder-shown:text-[#B4B4B4] peer-placeholder-shown:text-lg'>Подтвердите пароль</label>
                 {errors.repeat_password && <Error>{errors.repeat_password.message}</Error>}

@@ -6,7 +6,6 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { setToken } from '../../../store/user.slice/user.slice'
-import { ICheckboxes } from '../../../pages/HomePage/Billing/Calculator/data.interface'
 import Button from '../../Button/Button'
 import Error from '../../Message/Message'
 
@@ -55,7 +54,7 @@ const Login: React.FC<ILogin> = ({ setType, setActive }) => {
 
     return (
         <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
-            <div className='relative flex flex-col mt-10'>
+            <div className='relative flex flex-col mt-10 mb-16'>
                 <input type="text" id='login' {...register('login')} autoComplete='none' placeholder='Логин' className='peer py-1 px-2 text-white placeholder-transparent text-lg bg-transparent border-b focus:outline-none border-[#4F4F4F]' />
                 <label htmlFor="login" className='text-[#545454] text-sm absolute -top-6 peer-placeholder-shown:-top-0 transition-all peer-placeholder-shown:text-[#B4B4B4] peer-placeholder-shown:text-lg'>Логин</label>
                 {errors.login && <Error>{errors.login?.message}</Error>}
@@ -64,7 +63,7 @@ const Login: React.FC<ILogin> = ({ setType, setActive }) => {
                 <input type="password" id='password' {...register('password')} autoComplete='none' placeholder='Пароль' className='peer py-1 px-2 text-white placeholder-transparent text-lg bg-transparent border-b focus:outline-none border-[#4F4F4F]' />
                 <label htmlFor="password" className='text-[#545454] text-sm absolute -top-6 peer-placeholder-shown:-top-0 transition-all peer-placeholder-shown:text-[#B4B4B4] peer-placeholder-shown:text-lg'>Пароль</label>
                 {errors.password && <Error>{errors.password?.message}</Error>}
-                <a href="#" className='text-[#8F8F8F] text-sm absolute -bottom-8 right-0 transition-all hover:underline'>забыл пароль?</a>
+                <a href="#" className='text-[#8F8F8F] text-sm absolute -bottom-14 right-0 transition-all hover:underline'>забыл пароль?</a>
             </div>
             <Checkbox isActive={isRemember} setActive={setRemember}>Запомнить меня</Checkbox>
             <div className='flex flex-col md:flex-row justify-between items-center my-10 gap-6'>
