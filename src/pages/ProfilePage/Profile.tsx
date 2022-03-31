@@ -1,11 +1,10 @@
 import { useState } from "react"
-import { useAppSelector } from "../../store/hooks"
+import { IUser } from "../../store/user.slice/user.interface"
 import Admin from "./Admin/Admin"
 import User from "./User/User"
 
 const Profile = () => {
-    const users = useAppSelector(state => state.users.users)
-    const currentUser = users.find(user => user.token === localStorage.getItem('token'))
+    const currentUser: IUser = JSON.parse(localStorage.getItem('current_user') || '{}')
 
     const [status, setStatus] = useState(currentUser?.status)
 

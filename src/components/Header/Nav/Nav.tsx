@@ -17,8 +17,7 @@ const Nav: React.FC<INav> = ({ setActive, setShow, show, pages }) => {
   const [isModal, showModal] = useState<boolean>(false)
   const navigate = useNavigate()
 
-  const users = useAppSelector(state => state.users.users)
-  const currentUser = users.find(user => user.token === localStorage.getItem('token'))
+  const currentUser = localStorage.getItem('current_user')
 
   const handleClick = () => {
     setActive(false)

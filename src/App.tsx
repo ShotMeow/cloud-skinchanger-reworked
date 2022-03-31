@@ -5,11 +5,9 @@ import Download from './pages/DownloadPage/Download'
 import Home from './pages/HomePage/Home'
 import NotFound from './pages/NotFoundPage/NotFound'
 import Profile from './pages/ProfilePage/Profile'
-import { useAppSelector } from './store/hooks'
 
 const App = () => {
-    const users = useAppSelector(state => state.users.users)
-    const currentUser = users.find(user => user.token === localStorage.getItem('token'))
+    const currentUser = localStorage.getItem('current_user')
 
     return (
         <div>

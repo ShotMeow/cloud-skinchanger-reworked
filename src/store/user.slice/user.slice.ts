@@ -1,22 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "./user.interface";
 
-const users: IUser[] = [
-    {
-        id: 1,
-        login: 'admin',
-        email: 'admin@gmail.com',
-        password: 'admin123',
-        status: 'admin',
-    },
-    {
-        id: 2,
-        login: 'user',
-        email: 'user@mail.ru',
-        password: 'user1234',
-        status: 'user'
-    },
-]
+const users: IUser[] = []
 
 const userSlice = createSlice({
     name: "users",
@@ -32,11 +17,17 @@ const userSlice = createSlice({
                 password: action.payload.password,
                 status: 'user'
             })
+            localStorage.setItem('users', JSON.stringify(state.users))
+            console.log(localStorage)
         },
         setToken(state, action) {
-            const token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2)
-            state.users[action.payload].token = token
-            localStorage.setItem('token', token)
+            const current_user = {
+                login: action.payload.login,
+                password: action.payload.password,
+                email: action.payload.email,
+                status: action.payload.status
+            }
+            localStorage.setItem('current_user', JSON.stringify(current_user))
         }
     },
 });

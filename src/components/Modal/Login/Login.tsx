@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { setToken } from '../../../store/user.slice/user.slice'
 import Button from '../../Button/Button'
 import Error from '../../Message/Message'
+import { IUser } from '../../../store/user.slice/user.interface'
 
 interface IAuth {
     login: string
@@ -31,7 +32,7 @@ const Login: React.FC<ILogin> = ({ setType, setActive }) => {
             .min(8, 'Пароль должен иметь как минимум 8 символов')
     })
 
-    const users = useAppSelector(state => state.users.users)
+    const users = JSON.parse(localStorage.getItem('users') || '{}')
     const dispatch = useAppDispatch()
 
     const [isRemember, setRemember] = useState<boolean>(false)
@@ -40,9 +41,9 @@ const Login: React.FC<ILogin> = ({ setType, setActive }) => {
     const { register, handleSubmit, reset, setError, formState: { errors } } = useForm<IAuth>(validationOpt)
 
     const onSubmit: SubmitHandler<IAuth> = data => {
-        users.forEach(user => {
+        users.forEach((user: IUser) => {
             if (user.login === data['login'] && user.password === data['password']) {
-                dispatch(setToken(users.indexOf(user)))
+                dispatch(setToken(user))
                 navigate('/profile')
                 setActive()
                 reset()

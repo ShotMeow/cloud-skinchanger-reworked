@@ -8,7 +8,7 @@ import { ITariff } from '../../HomePage/Billing/Tariffs/data.interface'
 const Admin: React.FC<IUserComponent> = ({ user }) => {
     const navigate = useNavigate()
     const exit = () => {
-        localStorage.removeItem('token')
+        localStorage.removeItem('current_user')
         navigate('/')
     }
 
