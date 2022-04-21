@@ -7,7 +7,8 @@ import NotFound from './pages/NotFoundPage/NotFound'
 import Profile from './pages/ProfilePage/Profile'
 
 const App = () => {
-    const currentUser = localStorage.getItem('current_user')
+    let currentUser = localStorage.getItem('current_user')
+
 
     return (
         <div>
