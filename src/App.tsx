@@ -7,9 +7,6 @@ import NotFound from './pages/NotFoundPage/NotFound'
 import Profile from './pages/ProfilePage/Profile'
 
 const App = () => {
-    let currentUser = localStorage.getItem('current_user')
-
-
     return (
         <div>
             <BrowserRouter>
@@ -18,7 +15,7 @@ const App = () => {
                     <Route path='*' element={<NotFound />} />
                     <Route path='/' element={<Home />} />
                     <Route path='download' element={<Download />} />
-                    {currentUser && <Route path='profile' element={<Profile />} />}
+                    {localStorage.getItem('current_user') && <Route path='profile' element={<Profile />} />}
                 </Routes>
                 <Footer />
             </BrowserRouter>
